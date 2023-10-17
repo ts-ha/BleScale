@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/feed_fragment">
+
+    <fragment
+        android:id="@+id/feed_fragment"
+        android:name="com.cuchen.blescale.ui.ScanScreenFragment"
+        android:label="Feed">
+        <!-- <action
+             android:id="@+id/action_feed_to_detail"
+             app:destination="@id/detail_fragment"
+             app:launchSingleTop="true" />
+         <action
+             android:id="@+id/action_feed_to_info"
+             app:destination="@id/info_fragment"
+             app:launchSingleTop="true" />-->
+
+        <action
+            android:id="@+id/action_feed_fragment_to_connectBleFragment"
+            app:destination="@id/connectBleFragment"
+            app:launchSingleTop="true" />
+
+
+        <action
+            android:id="@+id/action_connectBleFragment_to_waterLevelFragment"
+            app:destination="@id/waterLevelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/connectBleFragment"
+        android:name="com.cuchen.blescale.ui.ConnectBleFragment"
+        android:label="fragment_connect_ble"
+        tools:layout="@layout/fragment_connect_ble">
+        <action
+            android:id="@+id/action_connectBleFragment_to_waterLevelFragment"
+            app:destination="@id/waterLevelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/waterLevelFragment"
+        android:name="com.cuchen.blescale.ui.WaterLevelFragment"
+        android:label="fragment_water_level"
+        tools:layout="@layout/fragment_water_level">
+        <argument
+            android:name="scaleInfo"
+            app:argType="string" />
+        <argument
+            android:name="riceType"
+            app:argType="string" />
+
+
+    </fragment>
+
+    <!-- <fragment
+         android:id="@+id/detail_fragment"
+         android:name="kr.co.fastcampus.part4plus.movieapp.features.detail.DetailFragment"
+         android:label="Detail">
+         <argument
+             android:name="movieName"
+             app:argType="string" />
+         <action
+             android:id="@+id/action_detail_to_rating"
+             app:destination="@id/rating_fragment"
+             app:launchSingleTop="true" />
+         <action
+             android:id="@+id/action_detail_to_imdb_dialog"
+             app:destination="@id/imdb_fragment"
+             app:launchSingleTop="true" />
+     </fragment>
+
+     <dialog
+         android:id="@+id/rating_fragment"
+         android:name="kr.co.fastcampus.part4plus.movieapp.features.dialogs.RatingDialogFragment"
+         android:label="Rating">
+         <argument
+             android:name="movieName"
+             app:argType="string" />
+         <argument
+             android:name="rating"
+             app:argType="float" />
+     </dialog>
+
+     <dialog
+         android:id="@+id/imdb_fragment"
+         android:name="kr.co.fastcampus.part4plus.movieapp.features.dialogs.IMDBDialogFragment"
+         android:label="IMDB">
+         <argument
+             android:name="url"
+             app:argType="string" />
+     </dialog>
+
+     <dialog
+         android:id="@+id/info_fragment"
+         android:name="kr.co.fastcampus.part4plus.movieapp.features.dialogs.InfoDialogFragment"
+         android:label="Notice" />-->
+</navigation>
